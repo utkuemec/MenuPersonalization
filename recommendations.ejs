@@ -1,0 +1,29 @@
+<!-- recommendations.ejs -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recommendations</title>
+    </head>
+    <body>
+        <h1>Recommended Menu Items</h1>
+
+        <h2>Recommended Foods:</h2>
+        <ul>
+            <% data.recommended_foods.forEach(food => { %>
+                <% if(food.category !== 'Beverages' && food.category !== 'Coffee & Tea') { %>
+                    <li>Name: <%= food.name %>, Category: <%= food.category %></li>
+                <% } %>
+            <% }); %>
+        </ul>
+
+        <h2>Recommended Drinks:</h2>
+        <ul>
+            <% data.recommended_drinks.forEach(drink => { %>
+                <% if(drink.category === 'Beverages' || drink.category === 'Coffee & Tea') { %>
+                    <li>Name: <%= drink.name %>, Category: <%= drink.category %></li>
+                <% } %>
+            <% }); %>
+        </ul>
+    </body>
+</html>
